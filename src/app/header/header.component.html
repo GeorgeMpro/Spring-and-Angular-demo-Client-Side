@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    <!--todo(?) change to brand-->
+    <a class="navbar-brand"
+       routerLink="/">
+        Coupon System</a>
+
+    <!--todo fix: navbar collapse not working-->
+    <!--maybe because of bootstrap/jquery/popper version problem-->
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#content"
+            aria-controls="content"
+            aria-expanded="false"
+            aria-label="toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="content">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/companies" routerLinkActive="active">
+                    Companies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customers" routerLinkActive="active">
+                    Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/coupons']" routerLinkActive="active">
+                    Coupons</a>
+            </li>
+        </ul>
+    </div>
+</nav>

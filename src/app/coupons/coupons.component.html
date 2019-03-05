@@ -1,0 +1,51 @@
+<!--todo change display-->
+<!--todo limit image preview size-->
+
+<h2 style="text-align:center">Coupon Directory</h2>
+<br><br>
+
+<button class="btn btn-outline-success" (click)="create()">Create</button>
+<table class="table table-hover">
+    <caption>List of Coupons</caption>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">description</th>
+        <th scope="col">Image Preview</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <!--todo(?) owned by company-->
+        <th scope="col">Company</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let coupon of coupons" (click)="onSelect(coupon.id)">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.name}}</td>
+        <td>{{coupon.amount}}</td>
+        <td>{{coupon.description}}</td>
+
+        <!--todo extract image scalign to general css classes-->
+        <td><img
+                style="width:25%; height:auto"
+                [src]="coupon.imageLocation"
+                class="img-responsive"
+                alt="coupon display image"></td>
+
+        <td>{{coupon.startDate}}</td>
+        <td>{{coupon.endDate}}</td>
+        <!--todo add owning company-->
+        <td>To add</td>
+        <td>
+            <button class="btn btn-sm btn-outline-primary" (click)="onSelect(coupon.id)">Select</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<router-outlet></router-outlet>

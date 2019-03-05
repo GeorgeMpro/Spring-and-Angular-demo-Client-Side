@@ -1,0 +1,40 @@
+<!--todo (?) change to dropdown 'Manage Coupon-->
+<div class="btn-group" role="group" aria-label="Coupon Actions">
+    <button class="btn btn-outline-success" (click)="onUpdate()">Update</button>
+    <button class="btn btn-outline-danger" (click)="onDelete(coupon.id)">Delete</button>
+    <button class="btn btn-outline-primary" routerLink="/coupons">Back</button>
+
+</div>
+
+<!--todo(?) change the display-->
+<table class="table table-hover">
+    <caption>Coupon</caption>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">description</th>
+        <th scope="col">Image Preview</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="coupon" (click)="onUpdate()">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.name}}</td>
+        <td>{{coupon.amount}}</td>
+        <td>{{coupon.description}}</td>
+
+        <!--todo extract to image scale css class-->
+        <td><img
+                style="width: 75%;height: auto"
+                [src]="coupon.imageLocation"
+                class="img-responsive"
+                alt="coupon display image"></td>
+        <td>{{coupon.startDate}}</td>
+        <td>{{coupon.endDate}}</td>
+    </tr>
+    </tbody>
+</table>
