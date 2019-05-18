@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Coupon} from '../coupon.model';
-import {CouponService} from '../coupon.service';
+import {CouponService} from '../../services/coupon.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs';
 })
 export class CouponComponent implements OnInit, OnDestroy {
 
-    private coupon: Coupon;
+    coupon: Coupon;
     // todo(?) add owning company field
     private idRoute: number;
     private paramsSubscription: Subscription;
@@ -62,7 +62,7 @@ export class CouponComponent implements OnInit, OnDestroy {
 
     onDelete(id: number) {
         // todo reload the coupon list
-        this.service.delete(id).subscribe(
+        this.service.deleteById(id).subscribe(
             // todo
             response => {
                 console.log(response);

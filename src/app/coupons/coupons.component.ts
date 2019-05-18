@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {CouponService} from './coupon.service';
+import {CouponService} from '../services/coupon.service';
 import {Coupon} from './coupon.model';
 import {Subscription} from 'rxjs';
+import {AppError} from '../errors/app-error';
 
 @Component({
     selector: 'app-coupon',
@@ -23,14 +24,12 @@ export class CouponsComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.service.updateCouponListValues();
         this.subscription = this.service.couponsUpdate.subscribe(
-            data => {
-                this.coupons = data;
-            },
-            error => {
-                // todo display error to client
-                console.log(error);
-            }
-        );
+            (data => this.coupons = data)
+            ,
+            // todo test that it toasts message
+            (error: AppError) => {
+                throw error;
+            });
     }
 
     ngOnDestroy(): void {

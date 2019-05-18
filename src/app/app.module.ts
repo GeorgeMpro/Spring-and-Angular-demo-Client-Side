@@ -1,7 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AppErrorHandler} from './errors/app-error-handler';
 
 import {AppComponent} from './app.component';
 import {CustomerComponent} from './customers/customer-component/customer.component';
@@ -31,9 +32,11 @@ import {AppRoutingModule} from './app-routing.module';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule,
+        AppRoutingModule
     ],
-    providers: [],
+    providers: [
+        {provide: ErrorHandler, useClass: AppErrorHandler},
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

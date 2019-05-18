@@ -19,7 +19,7 @@
 <p><b>Angular 2+</b>, <b>RxJS</b>, <b>NgRX</b>
 
 ### Client Side So far
-<p>The Client Side application has a functioning 'Coupons' sections which interacts with the Server Side, supports CRUD operations.<br> Next features to be added Error Handling, Company and Customer CRUD.</p>
+<p>The Client Side application has a functioning 'Coupons' section which interacts with the Server Side, supports CRUD operations.<br> Next features to be added Error Handling, Company and Customer CRUD.</p>
 
 ### Project Major Steps
 <ol>

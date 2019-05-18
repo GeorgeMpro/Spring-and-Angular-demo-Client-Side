@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CompanyService} from '../company.service';
+import {CompanyService} from '../../services/company.service';
 import {Company} from '../company.model';
 
 @Component({
@@ -18,7 +18,7 @@ export class CompanyComponent implements OnInit {
     ngOnInit() {
         // todo change to subject subscription
         this.service.getAll().subscribe(
-            data => {
+            (data: Response | any) => {
                 this.companies = data;
             },
             error => {
@@ -43,7 +43,7 @@ export class CompanyComponent implements OnInit {
     }
 
     delete(id: any) {
-        this.service.deleteCompany(id);
+        this.service.deleteById(id);
     }
 
     //    todo
